@@ -3,17 +3,24 @@ package entities;
 public class QuickSort extends Ordenacao {
 
 	public QuickSort(int[] vetor, int n) {
-		super(vetor, n);
+		this.vetorOrdenado = OperacoesVetores.copiaVetor(vetor);
+		ordenaVetorQuickSort(this.vetorOrdenado, n);
 	}
 
-	private int selecoesPivo;
-	private int trocasElementos;
-	
-	public void ordenaVetorQuickSort(int[] vetor, int esquerda, int direita) {
+	// Performa as operações de ordenação, cálculo do tempo, etc
+	private void ordenaVetorQuickSort(int[] vetor, int n){
+		imprimeNomeDaOrdenacao();
+		comecarCronometro();
+		performaOrdernacao(vetor, 0, n-1);
+		pararCronometro();
+	}
+
+	// Ordena o vetor usando MergeSort
+	private void performaOrdernacao(int[] vetor, int esquerda, int direita) {
 		if(esquerda < direita) {
 			int p = particao(vetor, esquerda, direita);
-			ordenaVetorQuickSort(vetor, esquerda, p);
-			ordenaVetorQuickSort(vetor, p + 1, direita);
+			performaOrdernacao(vetor, esquerda, p);
+			performaOrdernacao(vetor, p + 1, direita);
 		}
 	}
 		
