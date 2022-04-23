@@ -9,7 +9,13 @@ public class Ordenacao {
 	
 	
 	public Ordenacao(int[] vetor, int n) {
-		OperacoesVetores.copiaVetor(vetor, this.vetor, n);
+		this.vetor = vetor;
+		//OperacoesVetores.copiaVetor(vetor, this.vetor, n);
+	}
+
+	public int[] getOrdenado(){
+		int[] a = {1, 2, 3};
+		return a;
 	}
 	
 	public void imprimeOrdenado() {

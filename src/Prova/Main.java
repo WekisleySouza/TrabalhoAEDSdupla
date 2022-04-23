@@ -11,7 +11,7 @@ public class Main {
 		OperacoesVetores.preencherAleatoriamente(vetor, 10);
 		OperacoesVetores.imprimeVetor(vetor, 10);
 		
-		Ordenacao teste = new IsertionSort();
+		Ordenacao teste = new IsertionSort(vetor, 10);
 		teste.imprimeOrdenado();
 		
 	}
