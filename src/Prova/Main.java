@@ -1,6 +1,6 @@
 package Prova;
 
-import entities.IsertionSort;
+import entities.InsertionSort;
 import entities.OperacoesVetores;
 import entities.Ordenacao;
 
@@ -11,7 +11,7 @@ public class Main {
 		OperacoesVetores.preencherAleatoriamente(vetor, 10);
 		OperacoesVetores.imprimeVetor(vetor, 10);
 		
-		Ordenacao teste = new IsertionSort();
+		Ordenacao teste = new InsertionSort(vetor, 10);
 		teste.imprimeOrdenado();
 		
 	}
