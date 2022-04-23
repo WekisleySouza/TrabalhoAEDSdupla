@@ -6,8 +6,9 @@ public class OperacoesVetores {
 		int[] copia = new int[vetorOriginal.length];
 
 		for(int i = 0; i < vetorOriginal.length; i++) {
-			copia[i] = vetorOriginal[i]; 
+			copia[i] = vetorOriginal[i];
 		}
+		
 
 		return copia;
 	}

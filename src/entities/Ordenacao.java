@@ -18,12 +18,12 @@ public class Ordenacao {
 
 	// marca a variável tempo com o tempo atual em epoch
 	public void comecarCronometro(){
-		tempo = System.currentTimeMillis();
+		tempo = System.nanoTime();
 	}
 
 	// subtrai o tempo atual em epoch com a variável tempo
 	public void pararCronometro(){
-		tempo = System.currentTimeMillis() - this.tempo;
+		tempo = System.nanoTime() - this.tempo;
 	}
 
 	// Retorna o valor da variável tempo
