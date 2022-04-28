@@ -7,17 +7,17 @@ public class Main {
 		int[] vetor = new int[30000];
 		OperacoesVetores.preencherAleatoriamente(vetor, 30000);
 		
-		Ordenacao insertion5000 = new InsertionSort(vetor, 5000);
-		Ordenacao quick5000 = new QuickSort(vetor, 5000);
-		Ordenacao merge5000 = new MergeSort(vetor, 5000);
+		Ordenacao insertion5k = new InsertionSort(vetor, 5000);
+		Ordenacao quick5k = new QuickSort(vetor, 5000);
+		Ordenacao merge5k = new MergeSort(vetor, 5000);
 
-		Ordenacao insertion10000 = new InsertionSort(vetor, 10000);
-		Ordenacao quick10000 = new QuickSort(vetor, 10000);
-		Ordenacao merge10000 = new MergeSort(vetor, 10000);
+		Ordenacao insertion10k = new InsertionSort(vetor, 10000);
+		Ordenacao quick10k = new QuickSort(vetor, 10000);
+		Ordenacao merge10k = new MergeSort(vetor, 10000);
 
-		Ordenacao insertion30000 = new InsertionSort(vetor, 30000);
-		Ordenacao quick30000 = new QuickSort(vetor, 30000);
-		Ordenacao merge30000 = new MergeSort(vetor, 30000);
+		Ordenacao insertion30k = new InsertionSort(vetor, 30000);
+		Ordenacao quick30k = new QuickSort(vetor, 30000);
+		Ordenacao merge30k = new MergeSort(vetor, 30000);
 
 		Ordenacao ordena20 = new InsertionSort(vetor, 20);
 		System.out.print("Vetor original: ");
@@ -29,7 +29,7 @@ public class Main {
 
 		tabela.inserirResultado(
 			"Merge", 
-			new float[] {merge5000.getTempo(), merge10000.getTempo(), merge30000.getTempo()}, 
+			new float[] {merge5k.getTempo(), merge10k.getTempo(), merge30k.getTempo()}, 
 			new int[] {88, 100, 120}, // TEM QUE IMPLEMENTAR (acessos)
 			new int[] {45, 34, 65}, // TEM QUE IMPLEMENTAR (comparacoes)
 			new int[] {66, 566, 343}, // TEM QUE IMPLEMENTAR (trocas)
@@ -38,7 +38,7 @@ public class Main {
 
 		tabela.inserirResultado(
 			"Insertion", 
-			new float[] {insertion5000.getTempo(), insertion10000.getTempo(), insertion30000.getTempo()}, 
+			new float[] {insertion5k.getTempo(), insertion10k.getTempo(), insertion30k.getTempo()}, 
 			new int[] {88, 100, 120}, // TEM QUE IMPLEMENTAR (acessos)
 			new int[] {45, 34, 65}, // TEM QUE IMPLEMENTAR (comparacoes)
 			new int[] {66, 566, 343}, // TEM QUE IMPLEMENTAR (trocas)
@@ -47,7 +47,7 @@ public class Main {
 
 		tabela.inserirResultado(
 			"Quick", 
-			new float[] {quick5000.getTempo(), quick10000.getTempo(), quick30000.getTempo()}, 
+			new float[] {quick5k.getTempo(), quick10k.getTempo(), quick30k.getTempo()}, 
 			new int[] {88, 100, 120}, // TEM QUE IMPLEMENTAR (acessos)
 			new int[] {45, 34, 65}, // TEM QUE IMPLEMENTAR (comparacoes)
 			new int[] {66, 566, 343}, // TEM QUE IMPLEMENTAR (trocas)
