@@ -28,9 +28,13 @@ public class Tabela {
     }
 
     public void normalizaLinha(int index, int tamanhoEsperado){
-        int tamanhoLinha = linhas.get(index).length();
+        int tamanhoLinha = tamanhoLinha(index);
         int espacosFaltando = tamanhoEsperado - tamanhoLinha;
         adicionarEspacos(index, espacosFaltando);
+    }
+
+    public int tamanhoLinha(int index){
+        return linhas.get(index).length();
     }
 
     public void normalizaTodasLinhas(int tamanhoEsperado){
