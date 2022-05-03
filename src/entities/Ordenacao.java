@@ -3,8 +3,10 @@ package entities;
 public class Ordenacao {
 	//Mudar a tipagem dos atributos de tempo depois...
 	protected int[] vetorOrdenado;
-	private int acessos;
-	private int comparacoes;
+	protected int[] vetorOrdenadoContagens;
+	protected int acessos;
+	protected int comparacoes;
+	protected int trocas;
 	private long tempo;
 
 	// Imprime o nome da classe onde esse método é chamado. 
@@ -30,9 +32,23 @@ public class Ordenacao {
 		return tempo/(float)1000000;
 	}
 
+	public int getTrocas(){
+		return this.trocas;
+	}
+
 	// Retorna o vetor ordenado.
 	public int[] getOrdenado(){
 		return this.vetorOrdenado;
+	}
+
+	// Retorna número de comparações feitas pelo método.
+	public int getComparacoes(){
+		return this.comparacoes;
+	}
+
+	// Retorna número de acessos ao vetor.
+	public int getAcessos(){
+		return this.acessos;
 	}
 
 	// Imprime o vetor ordenado	

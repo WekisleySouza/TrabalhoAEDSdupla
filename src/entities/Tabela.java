@@ -21,7 +21,7 @@ public class Tabela {
 
     public void adicionarEspacos(int index, int quantidade) {
         String extra = "";
-        for(int i = 0; i<quantidade; i++) {
+        for(int i = 0; i < quantidade; i++) {
             extra += " ";
         } 
         adicionaNaLinha(index, extra);
@@ -38,7 +38,7 @@ public class Tabela {
     }
 
     public void normalizaTodasLinhas(int tamanhoEsperado){
-        for(int i = 0; i<linhas.size(); i++) {
+        for(int i = 0; i < linhas.size(); i++) {
             normalizaLinha(i, tamanhoEsperado);
         }   
     }
@@ -46,14 +46,14 @@ public class Tabela {
     public static String inteiroPelaDireita(int inteiro, int tamanhoString){
         String inteiroString = String.valueOf(inteiro);
         int espacosFaltando = tamanhoString - inteiroString.length();
-        for(int i = 0; i<espacosFaltando; i++) {
+        for(int i = 0; i < espacosFaltando; i++) {
             inteiroString = " " + inteiroString;
         } 
         return inteiroString;
     }
 
     public void imprimir(){
-        for(int i = 0; i<this.linhas.size(); i++) {
+        for(int i = 0; i < this.linhas.size(); i++) {
             System.out.println(this.linhas.get(i));
         }
     }

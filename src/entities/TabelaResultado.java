@@ -13,11 +13,12 @@ public class TabelaResultado extends Tabela{
 
 	private void criarEsqueleto(){
 		int lineSize;
-
+		
+		// Quando a parte de coletar dados estiver pronta, tem que ajustar a tabela.
 		lineSize = 11;
-		adicionaLinha("ORDENACAO                                           VETOR");
-		adicionaLinha("----------------------------  -------------------------------------------------------");
-		adicionaLinha("METODO      TEMPO TOTAL (ms)      ACESSOS           COMPARACOES          TROCAS");
+		adicionaLinha("ORDENACAO                                                                   VETOR");
+		adicionaLinha("-------------------------------------  -----------------------------------------------------------------------------------------------------");
+		adicionaLinha("METODO      TEMPO TOTAL (ms)                      ACESSOS           COMPARACOES          TROCAS");
 		adicionaLinha("");
 		adicionaLinha("=========  ");
 		adicionaLinha("Insertion");
@@ -25,8 +26,8 @@ public class TabelaResultado extends Tabela{
 		adicionaLinha("Quick");
 		normalizaTodasLinhas(lineSize);
 		for(int i=0; i<4; i++){
-			adicionaNaLinha(3, " 5000 10000 30000  ");
-			adicionaNaLinha(4, "===== ===== =====  ");
+			adicionaNaLinha(3, " 5000     10000     30000  ");
+			adicionaNaLinha(4, "======== ======== ========  ");
 		}
 	}
 

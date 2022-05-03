@@ -19,10 +19,10 @@ public class Main {
 		Ordenacao quick30k = new QuickSort(vetor, 30000);
 		Ordenacao merge30k = new MergeSort(vetor, 30000);
 
-		Ordenacao ordena20 = new InsertionSort(vetor, 20);
+		Ordenacao ordena20 = new InsertionSort(vetor, 4);
 		System.out.print("Vetor original: ");
-		OperacoesVetores.imprimeVetor(vetor, 20);
-		ordena20.imprimeOrdenado(20);
+		OperacoesVetores.imprimeVetor(vetor, 4);
+		merge10k.imprimeOrdenado(10000);
 		System.out.print("\n");
 
 		TabelaResultado tabela = new TabelaResultado();
@@ -30,28 +30,28 @@ public class Main {
 		tabela.inserirResultado(
 			"Merge", 
 			new float[] {merge5k.getTempo(), merge10k.getTempo(), merge30k.getTempo()}, 
-			new int[] {88, 100, 120}, // TEM QUE IMPLEMENTAR (acessos)
-			new int[] {45, 34, 65}, // TEM QUE IMPLEMENTAR (comparacoes)
-			new int[] {66, 566, 343}, // TEM QUE IMPLEMENTAR (trocas)
+			new int[] {merge5k.getAcessos(), merge10k.getAcessos(), merge30k.getAcessos()}, // Conferir resultados.
+			new int[] {merge5k.getComparacoes(), merge10k.getComparacoes(), merge30k.getComparacoes()}, // Conferir resultados.
+			new int[] {merge5k.getTrocas(), merge10k.getTrocas(), merge30k.getTrocas()}, // Implementar.
 			""
 			);
 
 		tabela.inserirResultado(
 			"Insertion", 
 			new float[] {insertion5k.getTempo(), insertion10k.getTempo(), insertion30k.getTempo()}, 
-			new int[] {88, 100, 120}, // TEM QUE IMPLEMENTAR (acessos)
-			new int[] {45, 34, 65}, // TEM QUE IMPLEMENTAR (comparacoes)
-			new int[] {66, 566, 343}, // TEM QUE IMPLEMENTAR (trocas)
-			String.format("(%s insercoes)", 20) // TEM QUE IMPLEMENTAR (insercoes)
+			new int[] {insertion5k.getAcessos(), insertion10k.getAcessos(), insertion30k.getAcessos()}, // Conferir resultados.
+			new int[] {insertion5k.getComparacoes(), insertion10k.getComparacoes(), insertion30k.getComparacoes()}, // Conferir resultados.
+			new int[] {insertion5k.getTrocas(), insertion10k.getTrocas(), insertion30k.getTrocas()}, // Conferir resultados.
+			String.format("(%s insercoes)", ((InsertionSort) insertion5k).getInsercoes()) // Conferir resultados.
 			);
 
 		tabela.inserirResultado(
 			"Quick", 
 			new float[] {quick5k.getTempo(), quick10k.getTempo(), quick30k.getTempo()}, 
-			new int[] {88, 100, 120}, // TEM QUE IMPLEMENTAR (acessos)
-			new int[] {45, 34, 65}, // TEM QUE IMPLEMENTAR (comparacoes)
-			new int[] {66, 566, 343}, // TEM QUE IMPLEMENTAR (trocas)
-			String.format("(%s pivos selecionados)", 30) // TEM QUE IMPLEMENTAR (pivos)
+			new int[] {quick5k.getAcessos(), quick10k.getAcessos(), quick30k.getAcessos()}, // Conferir resultados.
+			new int[] {quick5k.getComparacoes(), quick10k.getComparacoes(), quick30k.getComparacoes()}, // Conferir resultados.
+			new int[] {quick5k.getTrocas(), quick10k.getTrocas(), quick30k.getTrocas()}, // Conferir resultados.
+			String.format("(%s pivots selecionados)", ((QuickSort) quick5k).getPivotsSelecionados()) // Conferir resultados.
 			);
 
 		tabela.imprimir();

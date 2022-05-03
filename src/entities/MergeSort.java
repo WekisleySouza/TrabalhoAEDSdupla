@@ -5,6 +5,14 @@ public class MergeSort extends Ordenacao{
 	public MergeSort(int[] vetor, int n) {
 		this.vetorOrdenado = OperacoesVetores.copiaVetor(vetor);
 		ordenaVetorMergeSort(this.vetorOrdenado, n);
+		this.vetorOrdenadoContagens = OperacoesVetores.copiaVetor(vetor);
+		ordenaVetorMergeSortContando(this.vetorOrdenadoContagens, n);
+	}
+
+	//Ordena vetor usando MergeSort contando trocas, comparações e acessos.
+	private void ordenaVetorMergeSortContando(int[] vetor, int n){
+		int[] vetorMerge = OperacoesVetores.copiaVetor(vetor);
+		performaOrdenacaoContando(vetor, vetorMerge, 0, n - 1);
 	}
 
 	// Performa as operações de ordenação, cálculo do tempo, etc
@@ -12,22 +20,22 @@ public class MergeSort extends Ordenacao{
 		int[] vetorMerge = OperacoesVetores.copiaVetor(vetor);
 		imprimeNomeDaOrdenacao();
 		comecarCronometro();
-		performaOrdernacao(vetor, vetorMerge, 0, n-1);
+		performaOrdenacao(vetor, vetorMerge, 0, n-1);
 		pararCronometro();
 	}
 
 	// Ordena o vetor usando MergeSort
-	private void performaOrdernacao(int[] vetor, int[] vetorMerge, int inicio, int fim) {
+	private void performaOrdenacao(int[] vetor, int[] vetorMerge, int inicio, int fim) {
 		if(inicio < fim) {
 			int meio = (inicio + fim) / 2;
-			performaOrdernacao(vetor, vetorMerge, inicio, meio);
-			performaOrdernacao(vetor, vetorMerge, meio + 1, fim);
+			performaOrdenacao(vetor, vetorMerge, inicio, meio);
+			performaOrdenacao(vetor, vetorMerge, meio + 1, fim);
 			merge(vetor, vetorMerge, inicio, meio, fim);
 		}
 	}
 	
-	// TODO: Substituir esse comentário com um comentário explicando o que esse método faz
-	static void merge(int[] vetor, int[] vetorMerge, int inicio, int meio, int fim) {
+	// Método que realiza as trocas dp MergeSort.
+	public void merge(int[] vetor, int[] vetorMerge, int inicio, int meio, int fim) {
 		for(int k = inicio; k <= fim; k++) {
 			vetorMerge[k] = vetor[k];
 		}
@@ -46,4 +54,42 @@ public class MergeSort extends Ordenacao{
 			}
 		}
 	}
+	
+	// Ordena o vetor usando MergeSort contando trocas, comparações e acessos.
+		private void performaOrdenacaoContando(int[] vetor, int[] vetorMerge, int inicio, int fim) {
+			if(inicio < fim) {
+				this.comparacoes++;
+				int meio = (inicio + fim) / 2;
+				performaOrdenacaoContando(vetor, vetorMerge, inicio, meio);
+				performaOrdenacaoContando(vetor, vetorMerge, meio + 1, fim);
+				mergeContando(vetor, vetorMerge, inicio, meio, fim);
+			}
+		}
+		
+		// Método que realiza as trocas dp MergeSort contando trocas, comparações e acessos.
+		public void mergeContando(int[] vetor, int[] vetorMerge, int inicio, int meio, int fim) {
+			for(int k = inicio; k <= fim; k++) {
+				vetorMerge[k] = vetor[k];
+				this.acessos += 2;
+			}
+			int i = inicio;
+			int j = meio + 1;
+			
+			for(int k = inicio; k <= fim; k++) {
+				if(i > meio) {
+					vetor[k] = vetorMerge[j++];
+					this.comparacoes++;
+				}else if (j > fim){
+					vetor[k] = vetorMerge[i++];
+					this.comparacoes += 2;
+				}else if(vetorMerge[i] < vetorMerge[j]) {
+					vetor[k] = vetorMerge[i++];
+					this.comparacoes += 3;
+				}else {
+					vetor[k] = vetorMerge[j++];
+					this.comparacoes += 4;
+				}
+				this.acessos += 2;
+			}
+		}
 }
