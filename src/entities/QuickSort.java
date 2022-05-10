@@ -55,8 +55,8 @@ public class QuickSort extends Ordenacao {
 
 	// Faz ordenação usando o QuickSort enquanto coleta comparações, trocas e seleções de pivot.
 	private void performaOrdenacaoColetando(int[] vetor, int esquerda, int direita) {
+		this.comparacoes++;
 		if(esquerda < direita) {
-			this.comparacoes++;
 			int p = particaoColetando(vetor, esquerda, direita);
 			performaOrdenacaoColetando(vetor, esquerda, p);
 			performaOrdenacaoColetando(vetor, p + 1, direita);
@@ -84,11 +84,11 @@ public class QuickSort extends Ordenacao {
 			if(i >= j) {
 				return j;
 			}
-			this.comparacoes++;
+			this.comparacoes+=2;
 			int aux = vetor[i];
 			vetor[i] = vetor[j];
 			vetor[j] = aux;
-			this.trocas += 2;
+			this.trocas++;
 			this.acessos += 3;
 		}
 	}

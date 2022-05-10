@@ -2,6 +2,7 @@
 package entities;
 
 public class TabelaResultado extends Tabela{
+	static private int resultadoInteiroTamanho = 10;
 	public TabelaResultado() {
 		criarEsqueleto();
 	}
@@ -16,18 +17,23 @@ public class TabelaResultado extends Tabela{
 		
 		// Quando a parte de coletar dados estiver pronta, tem que ajustar a tabela.
 		lineSize = 11;
-		adicionaLinha("ORDENACAO                                                                   VETOR");
-		adicionaLinha("-------------------------------------  -----------------------------------------------------------------------------------------------------");
-		adicionaLinha("METODO      TEMPO TOTAL (ms)                      ACESSOS           COMPARACOES          TROCAS");
+		adicionaLinha("ORDENACAO                                                                              VETOR");
+		adicionaLinha("----------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------");
+		adicionaLinha("METODO      TEMPO TOTAL (ms)                      ACESSOS                         COMPARACOES                           TROCAS                              Extras");
 		adicionaLinha("");
 		adicionaLinha("=========  ");
 		adicionaLinha("Insertion");
 		adicionaLinha("Merge");
 		adicionaLinha("Quick");
 		normalizaTodasLinhas(lineSize);
-		for(int i=0; i<4; i++){
-			adicionaNaLinha(3, " 5000     10000     30000  ");
-			adicionaNaLinha(4, "======== ======== ========  ");
+		for(int i=0; i<5; i++){
+			if(i == 0) {
+				adicionaNaLinha(3, "5000  10000 30000  ");
+				adicionaNaLinha(4, "===== ===== =====  ");
+			}else {
+				adicionaNaLinha(3, "    5000        10000       30000    ");
+				adicionaNaLinha(4, "=========== =========== ===========  ");
+			}
 		}
 	}
 
@@ -60,23 +66,24 @@ public class TabelaResultado extends Tabela{
 		adicionaNaLinha(index, " ");
 		String numeroString;
 		for(int i=0; i<inteiros.length; i++){
-			numeroString = inteiroPelaDireita(inteiros[i], 5);
+			numeroString = inteiroPelaDireita(inteiros[i], resultadoInteiroTamanho);
 			adicionaNaLinha(index, numeroString);
-			adicionaNaLinha(index, " ");
+			adicionaNaLinha(index, "  ");
 		}
 	}
 
 	public void inserirResultado(
 		String categoria, float[] tempoTotal, 
 		int[] acessos, int[] comparacoes, 
-		int[] trocas, String extra) {
+		int[] trocas, int[] extra, String descreveExtra) {
 
 		int linhaIndex = indexDaCategoria(categoria);
 		inserirTempo(tempoTotal, linhaIndex);
 		inserirInteiros(acessos, linhaIndex);
 		inserirInteiros(comparacoes, linhaIndex);
 		inserirInteiros(trocas, linhaIndex);
-		adicionaNaLinha(linhaIndex, extra);
+		inserirInteiros(extra, linhaIndex);
+		adicionaNaLinha(linhaIndex, descreveExtra);
 		
 	}
 }

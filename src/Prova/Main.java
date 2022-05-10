@@ -32,7 +32,8 @@ public class Main {
 			new float[] {merge5k.getTempo(), merge10k.getTempo(), merge30k.getTempo()}, 
 			new int[] {merge5k.getAcessos(), merge10k.getAcessos(), merge30k.getAcessos()}, // Conferir resultados.
 			new int[] {merge5k.getComparacoes(), merge10k.getComparacoes(), merge30k.getComparacoes()}, // Conferir resultados.
-			new int[] {merge5k.getTrocas(), merge10k.getTrocas(), merge30k.getTrocas()}, // Implementar.
+			new int[] {merge5k.getTrocas(), merge10k.getTrocas(), merge30k.getTrocas()}, // Conferir resultados.
+			new int[] {}, 
 			""
 			);
 
@@ -42,7 +43,8 @@ public class Main {
 			new int[] {insertion5k.getAcessos(), insertion10k.getAcessos(), insertion30k.getAcessos()}, // Conferir resultados.
 			new int[] {insertion5k.getComparacoes(), insertion10k.getComparacoes(), insertion30k.getComparacoes()}, // Conferir resultados.
 			new int[] {insertion5k.getTrocas(), insertion10k.getTrocas(), insertion30k.getTrocas()}, // Conferir resultados.
-			String.format("(%s insercoes)", ((InsertionSort) insertion5k).getInsercoes()) // Conferir resultados.
+			new int[] {((InsertionSort) insertion5k).getInsercoes(), ((InsertionSort) insertion10k).getInsercoes(), ((InsertionSort) insertion30k).getInsercoes()}, // Conferir resultados.
+			"(Inserções)"
 			);
 
 		tabela.inserirResultado(
@@ -51,7 +53,8 @@ public class Main {
 			new int[] {quick5k.getAcessos(), quick10k.getAcessos(), quick30k.getAcessos()}, // Conferir resultados.
 			new int[] {quick5k.getComparacoes(), quick10k.getComparacoes(), quick30k.getComparacoes()}, // Conferir resultados.
 			new int[] {quick5k.getTrocas(), quick10k.getTrocas(), quick30k.getTrocas()}, // Conferir resultados.
-			String.format("(%s pivots selecionados)", ((QuickSort) quick5k).getPivotsSelecionados()) // Conferir resultados.
+			new int[] {((QuickSort) quick5k).getPivotsSelecionados(), ((QuickSort) quick10k).getPivotsSelecionados(), ((QuickSort) quick30k).getPivotsSelecionados()}, // Conferir resultados.
+			"(Pivots Selecionados)"
 			);
 
 		tabela.imprimir();

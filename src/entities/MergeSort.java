@@ -78,18 +78,22 @@ public class MergeSort extends Ordenacao{
 			for(int k = inicio; k <= fim; k++) {
 				if(i > meio) {
 					vetor[k] = vetorMerge[j++];
+					this.trocas++;
 					this.comparacoes++;
 				}else if (j > fim){
 					vetor[k] = vetorMerge[i++];
+					this.trocas++;
 					this.comparacoes += 2;
 				}else if(vetorMerge[i] < vetorMerge[j]) {
 					vetor[k] = vetorMerge[i++];
+					this.trocas++;
+					this.acessos += 4;
 					this.comparacoes += 3;
 				}else {
 					vetor[k] = vetorMerge[j++];
+					this.trocas++;
 					this.comparacoes += 4;
 				}
-				this.acessos += 2;
 			}
 		}
 }
