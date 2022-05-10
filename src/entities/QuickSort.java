@@ -4,6 +4,7 @@ public class QuickSort extends Ordenacao {
 
 	private int pivotSelecoes;
 
+	//Construtor.
 	public QuickSort(int[] vetor, int n) {
 		this.vetorOrdenado = OperacoesVetores.copiaVetor(vetor);
 		ordenaVetorQuickSort(this.vetorOrdenado, n);
@@ -11,6 +12,7 @@ public class QuickSort extends Ordenacao {
 		performaOrdenacaoColetando(this.vetorOrdenadoContagens, 0, n-1);
 	}
 
+	//Retorna pivot.
 	public int getPivotsSelecionados(){
 		return this.pivotSelecoes;
 	}
@@ -32,6 +34,7 @@ public class QuickSort extends Ordenacao {
 		}
 	}
 		
+	//Pega as divisões do vetor para ordenar.
 	public int particao(int[] vetor, int esquerda, int direita) {
 		int meio = (int) (esquerda + direita) / 2;
 		int pivot = vetor[meio];
@@ -63,6 +66,7 @@ public class QuickSort extends Ordenacao {
 		}
 	}
 
+	//Pega as divisões do vetor para ordenar.
 	public int particaoColetando(int[] vetor, int esquerda, int direita) {
 		int meio = (int) (esquerda + direita) / 2;
 		int pivot = vetor[meio];

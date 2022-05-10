@@ -2,6 +2,8 @@ package entities;
 
 public class MergeSort extends Ordenacao{
 	
+	
+	// Construtor.
 	public MergeSort(int[] vetor, int n) {
 		this.vetorOrdenado = OperacoesVetores.copiaVetor(vetor);
 		ordenaVetorMergeSort(this.vetorOrdenado, n);

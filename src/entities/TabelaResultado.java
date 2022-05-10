@@ -12,10 +12,10 @@ public class TabelaResultado extends Tabela{
 		return String.format("%5.5s", numero);
 	} 
 
+	// Cria o esqueleto da tabela.
 	private void criarEsqueleto(){
 		int lineSize;
 		
-		// Quando a parte de coletar dados estiver pronta, tem que ajustar a tabela.
 		lineSize = 11;
 		adicionaLinha("ORDENACAO                                                                              VETOR");
 		adicionaLinha("----------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------");
@@ -36,7 +36,8 @@ public class TabelaResultado extends Tabela{
 			}
 		}
 	}
-
+	
+	// Retorna o index (linha) da categoria que é passada no parâmetro.
 	private int indexDaCategoria(String categoria) {
 		int linhaIndex = -1;
 
@@ -54,14 +55,16 @@ public class TabelaResultado extends Tabela{
 
 		return linhaIndex;
 	}
-
+	
+	// Insere o tempo em uma linha da tabela.
 	private void inserirTempo(float[] tempoTotal, int index){
 		for(int i=0; i<tempoTotal.length; i++){
 			adicionaNaLinha(index, formataFloat(tempoTotal[i]));
 			adicionaNaLinha(index, " ");
 		}
 	}
-
+	
+	// Intere um inteiro em uma linha da tabela.
 	private void inserirInteiros(int[] inteiros, int index){
 		adicionaNaLinha(index, " ");
 		String numeroString;
@@ -71,7 +74,8 @@ public class TabelaResultado extends Tabela{
 			adicionaNaLinha(index, "  ");
 		}
 	}
-
+	
+	// Insere na parte da tabela em que os resultados são mostrados.
 	public void inserirResultado(
 		String categoria, float[] tempoTotal, 
 		int[] acessos, int[] comparacoes, 

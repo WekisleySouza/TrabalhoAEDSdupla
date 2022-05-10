@@ -4,6 +4,7 @@ public class InsertionSort extends Ordenacao{
 
 	private int insercoes;
 
+	// Construtor.
 	public InsertionSort(int[] vetor, int n) {
 		super();
 		this.vetorOrdenado = OperacoesVetores.copiaVetor(vetor);
@@ -12,6 +13,7 @@ public class InsertionSort extends Ordenacao{
 		performaOrdernacaoContando(this.vetorOrdenadoContagens, n);
 	}
 
+	// Retorna inserçoes.
 	public int getInsercoes(){
 		return (int) this.insercoes;
 	}
