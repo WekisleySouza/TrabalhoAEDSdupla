@@ -55,8 +55,7 @@ public class QuickSort extends Ordenacao {
 			vetor[j] = aux;
 		}
 	}
-
-	// Faz ordenação usando o QuickSort enquanto coleta comparações, trocas e seleções de pivot.
+	
 	private void performaOrdenacaoColetando(int[] vetor, int esquerda, int direita) {
 		this.comparacoes++;
 		if(esquerda < direita) {
@@ -66,7 +65,6 @@ public class QuickSort extends Ordenacao {
 		}
 	}
 
-	//Pega as divis�es do vetor para ordenar.
 	public int particaoColetando(int[] vetor, int esquerda, int direita) {
 		int meio = (int) (esquerda + direita) / 2;
 		int pivot = vetor[meio];
@@ -93,7 +91,7 @@ public class QuickSort extends Ordenacao {
 			vetor[i] = vetor[j];
 			vetor[j] = aux;
 			this.trocas++;
-			this.acessos += 3;
+			this.acessos += 4;
 		}
 	}
 }

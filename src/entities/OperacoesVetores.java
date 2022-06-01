@@ -9,20 +9,19 @@ public class OperacoesVetores {
 			copia[i] = vetorOriginal[i];
 		}
 		
-
 		return copia;
 	}
 
 	// Imprime um vetor na tela no formato [1, 2, 3]	
 	public static void imprimeVetor(int[] vetor, int n) {
-		System.out.print("{ ");
+		System.out.print("[ ");
 		for(int i = 0; i < n; i++) {
 			System.out.print(vetor[i]);
 			if(i != n - 1) {
 				System.out.print(", ");
 			}
 		}
-		System.out.print(" ... }");
+		System.out.print(" ]");
 		System.out.println();
 	}
 

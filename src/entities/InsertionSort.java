@@ -48,7 +48,7 @@ public class InsertionSort extends Ordenacao{
 				vetor[j + 1] = vetor[j];
 				j--;
 				this.insercoes++;
-				this.comparacoes++;
+				this.comparacoes+=2;
 				this.acessos += 3;
 				this.trocas++;
 			}

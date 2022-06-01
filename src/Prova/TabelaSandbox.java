@@ -11,12 +11,14 @@ public class TabelaSandbox {
 		int[] acessos = {123, 23, 345};
 		int[] comparacoes = {45, 243, 345};
 		int[] trocas = {123, 23, 342};
+		int[] extras = {212, 234, 122};
 		tabela.inserirResultado(
 			"Insertion",
 			tempoTotal, 
 			acessos, 
 			comparacoes, 
 			trocas, 
+			extras,
 			"(20 insercoes)"
 		);
 		tabela.inserirResultado(
@@ -25,6 +27,7 @@ public class TabelaSandbox {
 			acessos, 
 			comparacoes, 
 			trocas, 
+			extras,
 			""
 		);
 		tabela.inserirResultado(
@@ -33,7 +36,7 @@ public class TabelaSandbox {
 			acessos, 
 			comparacoes, 
 			trocas, 
-			"(20 pivots)"
+			extras, "(20 pivots)"
 		);
 		tabela.imprimir();
 	}
